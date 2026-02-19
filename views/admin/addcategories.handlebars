@@ -1,0 +1,32 @@
+<h3>
+    Nova Categoria
+</h3>
+<div class="card">
+    <div class="card-body">
+        <form action="/admin/categories/new"
+            method="POST">
+            <label for="nome">
+                Nome
+            </label>
+            <input type="text"
+                class="form-control"
+                id="nome"
+                name="nome"
+                placeholder="Nome da Categoria" />
+
+            <label for="slug">
+                Slug
+            </label>
+            <input type="text"
+                class="form-control"
+                id="slug"
+                name="slug"
+                placeholder="Slug da Categoria" />
+
+            <button type="submit"
+                class="btn btn-success">
+                Cadastrar
+            </button>
+        </form>
+    </div>
+</div>
