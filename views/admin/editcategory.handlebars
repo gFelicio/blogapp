@@ -6,12 +6,16 @@
 
 {{/each}}
 <h3>
-    Nova Categoria
+    Editar Categoria
 </h3>
 <div class="card">
     <div class="card-body">
-        <form action="/admin/categories/new"
+        <form action="/admin/categories/edit"
             method="POST">
+            <input type="hidden"
+                id="id"
+                name="id"
+                value="{{category._id}}" />
             <label for="nome">
                 Nome
             </label>
@@ -19,7 +23,8 @@
                 class="form-control"
                 id="nome"
                 name="nome"
-                placeholder="Nome da Categoria" />
+                placeholder="Nome da Categoria"
+                value="{{category.nome}}" />
 
             <label for="slug">
                 Slug
@@ -28,7 +33,8 @@
                 class="form-control"
                 id="slug"
                 name="slug"
-                placeholder="Slug da Categoria" />
+                placeholder="Slug da Categoria"
+                value="{{category.slug}}" />
 
             <button type="submit"
                 class="btn btn-success">
