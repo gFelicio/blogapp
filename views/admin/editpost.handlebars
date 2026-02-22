@@ -1,0 +1,92 @@
+{{#each erros}}
+    <div class="alert alert-danger">
+        {{this.texto}}
+    </div>
+{{else}}
+
+{{/each}}
+
+<h3>
+    Editar Postagem
+</h3>
+
+<div class="card">
+    <form action="/admin/posts/edit"
+        method="POST">
+        <input type="hidden"
+            name="id"
+            value="{{post._id}}" />
+
+        <div class="card-header">
+            Editar Postagem
+        </div>
+
+        <div class="card-body">
+            <label for="titulo">
+                Título
+            </label>
+            <input type="text"
+                name="titulo"
+                id="titulo"
+                class="form-control"
+                required
+                value="{{post.titulo}}">
+
+            <label for="slug">
+                Slug
+            </label>
+            <input type="text"
+                name="slug"
+                id="slug"
+                class="form-control"
+                required
+                value="{{post.slug}}">
+
+            <label for="descricao">
+                Descrição
+            </label>
+            <input type="text"
+                name="descricao"
+                id="descricao"
+                class="form-control"
+                required
+                value="{{post.descricao}}">
+
+            <label for="conteudo">
+                Conteúdo
+            </label>
+            <textarea name="conteudo" id="conteudo" class="form-control" required>{{post.conteudo}}</textarea>
+
+            <label for="categoria">
+                Categoria
+            </label>
+            <select name="categoria"
+                id="categoria"
+                class="form-control"
+                required>
+                <option selected disabled>
+                    Selecione uma Categoria
+                </option>
+                {{#each categories}}
+                    <option value="{{this._id}}"
+                        {{#ifCond this._id ../post.categoria._id}}
+                            selected
+                        {{/ifCond}}>
+                        {{this.nome}}
+                    </option>
+                {{else}}
+                    <option value="0">
+                        Nenhuma Categoria registrada
+                    </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="d-flex card-footer justify-content-end">
+            <button type="submit"
+                class="btn btn-success">
+                Atualizar Postagem
+            </button>
+        </div>
+    </form>
+</div>

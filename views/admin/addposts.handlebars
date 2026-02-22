@@ -1,0 +1,76 @@
+{{#each erros}}
+    <div class="alert alert-danger">
+        {{this.texto}}
+    </div>
+{{/each}}
+
+<div class="card">
+    <form action="/admin/posts/new"
+        method="POST">
+        <div class="card-header">
+            Nova Postagem
+        </div>
+
+        <div class="card-body">
+            <label for="titulo">
+                Título
+            </label>
+            <input type="text"
+                name="titulo"
+                id="titulo"
+                class="form-control"
+                required>
+
+            <label for="slug">
+                Slug
+            </label>
+            <input type="text"
+                name="slug"
+                id="slug"
+                class="form-control"
+                required>
+
+            <label for="descricao">
+                Descrição
+            </label>
+            <input type="text"
+                name="descricao"
+                id="descricao"
+                class="form-control"
+                required>
+
+            <label for="conteudo">
+                Conteúdo
+            </label>
+            <textarea name="conteudo" id="conteudo" class="form-control" required></textarea>
+
+            <label for="categoria">
+                Categoria
+            </label>
+            <select name="categoria"
+                id="categoria"
+                class="form-control"
+                required>
+                <option selected disabled>
+                    Selecione uma Categoria
+                </option>
+                {{#each categories}}
+                    <option value="{{this._id}}">
+                        {{this.nome}}
+                    </option>
+                {{else}}
+                    <option value="0">
+                        Nenhuma Categoria registrada
+                    </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="card-footer">
+            <button type="submit"
+                class="btn btn-success">
+                Cadastrar Postagem
+            </button>
+        </div>
+    </form>
+</div>

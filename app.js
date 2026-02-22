@@ -32,7 +32,16 @@
     app.use(bodyParser.json())
 
     app.engine('handlebars', engine({
-        defaultLayout: 'main'
+        defaultLayout: 'main',
+        helpers: {
+            ifCond: function(v1, v2, options) {
+                if (String(v1) === String(v2)) {
+                    return options.fn(this)
+                } else {
+                    return options.inverse(this)
+                }
+            }
+        }
     }))
     app.set('view engine', 'handlebars')
 
