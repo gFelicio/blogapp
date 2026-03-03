@@ -1,0 +1,35 @@
+<h1>
+    Posts da Categoria {{category.nome}}
+</h1>
+
+{{#each posts}}
+    <div class="card mt-4">
+        <div class="card-header">
+            {{this.titulo}}
+        </div>
+
+        <div class="card-body">
+            {{this.descricao}}
+        </div>
+
+        <div class="d-flex card-footer justify-content-end align-items-center">
+            <small class="mr-3">
+                {{this.categoria.nome}}
+            </small>
+
+            <small class="mr-3">
+                {{this.data}}
+            </small>
+
+            <a data-type="button"
+                href="/post/{{this.slug}}"
+                class="btn btn-primary">
+                Ler mais
+            </a>
+        </div>
+    </div>
+{{else}}
+    <p>
+        Não há postagens para esta Categoria!
+    </p>
+{{/each}}

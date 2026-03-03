@@ -1,0 +1,59 @@
+<div class="jumbotron">
+    <h1 class="display-4">
+        Bem vindo ao Blog Node
+    </h1>
+
+    <p class="lead">
+        Este é um blog feito com Node.js, Express, Handlebars e MongoDB.
+    </p>
+
+    <hr class="my-4">
+
+    <p>
+        Desenvolvido para fins de estudo, o blog tem como objetivo demonstrar o uso dessas tecnologias em um projeto prático.
+    </p>
+
+    <p class="lead">
+        <a class="btn btn-primary btn-lg"
+            href="#"
+            role="button">
+            Crie uma Conta
+        </a>
+    </p>
+</div>
+
+<hr>
+
+<h2>
+    Postagens recentes
+</h2>
+
+{{#each posts}}
+    <div class="card mt-4">
+        <div class="card-header">
+            {{this.titulo}}
+        </div>
+
+        <div class="card-body">
+            {{this.descricao}}
+        </div>
+
+        <div class="d-flex card-footer justify-content-end align-items-center">
+            <small class="mr-3">
+                {{this.categoria.nome}}
+            </small>
+
+            <small class="mr-3">
+                {{this.data}}
+            </small>
+
+            <a data-type="button"
+                href="/post/{{this.slug}}"
+                class="btn btn-primary">
+                Ler mais
+            </a>
+        </div>
+    </div>
+{{else}}
+    <p>Nenhuma postagem encontrada.</p>
+{{/each}}

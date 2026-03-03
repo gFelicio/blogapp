@@ -1,0 +1,14 @@
+<h1>
+    Categorias
+</h1>
+
+{{#each categories}}
+    <a href="/categories/{{this.slug}}"
+        class="btn btn-secondary d-flex w-50 mt-4 justify-content-center">
+        Ver postagens da Categoria {{this.nome}}
+    </a>
+{{else}}
+    <p>
+        Não há Categorias registradas
+    </p>
+{{/each}}
