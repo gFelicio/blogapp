@@ -1,0 +1,72 @@
+<h1>
+    Crie seu Registro!
+</h1>
+
+{{#each erros}}
+    <div class="alert alert-danger">
+        {{this.texto}}
+    </div>
+
+{{/each}}
+
+<div class="card mt-4">
+    <form action=""
+        method="POST">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="nome">
+                    Nome
+                </label>
+
+                <input type="text"
+                    name="nome"
+                    id="nome"
+                    class="form-control"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">
+                    E-mail
+                </label>
+
+                <input type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="senha">
+                    Senha
+                </label>
+
+                <input type="password"
+                    name="senha"
+                    id="senha"
+                    class="form-control"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmar_senha">
+                    Confirmar Senha
+                </label>
+
+                <input type="password"
+                    name="confirmar_senha"
+                    id="confirmar_senha"
+                    class="form-control"
+                    required>
+            </div>
+        </div>
+
+        <div class="d-flex card-footer justify-content-end">
+            <button type="submit"
+                class="btn btn-success">
+                Registrar
+            </button>
+        </div>
+    </form>
+</div>

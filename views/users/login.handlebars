@@ -1,0 +1,41 @@
+<h1>
+    Entre na sua conta
+</h1>
+
+<div class="card mt-4">
+    <form action="/users/login"
+        method="POST">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="email">
+                    E-mail
+                </label>
+
+                <input type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="senha">
+                    Senha
+                </label>
+
+                <input type="password"
+                    name="senha"
+                    id="senha"
+                    class="form-control"
+                    required>
+            </div>
+        </div>
+
+        <div class="d-flex card-footer justify-content-end">
+            <button type="submit"
+                class="btn btn-primary">
+                Entrar
+            </button>
+        </div>
+    </form>
+</div>

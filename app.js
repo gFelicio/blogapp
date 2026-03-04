@@ -1,6 +1,8 @@
 // Módulos
+    const passport = require('passport')
     require('./models/Post')
     require('./models/Category')
+    require('./config/auth')(passport)
     const express = require('express')
     const { engine } = require('express-handlebars')
     const session = require('express-session')
@@ -9,6 +11,7 @@
     const app = express()
     const mongoose = require('mongoose')
     const admin = require('./routes/admin')
+    const user = require('./routes/user')
     const path = require('path')
     const PORT = 8081
 
@@ -22,12 +25,14 @@
         saveUninitialized: true
     }))
 
+    app.use(passport.initialize())
+    app.use(passport.session())
     app.use(flash())
 
     app.use((req, res, next) => {
         res.locals.success_msg = req.flash('success_msg')
         res.locals.error_msg = req.flash('error_msg')
-
+        res.locals.error = req.flash('error')
         next()
     })
 
@@ -160,6 +165,7 @@
     })
 
     app.use('/admin', admin)
+    app.use('/users', user)
 
 // Outros
 app.listen(PORT, () => {
